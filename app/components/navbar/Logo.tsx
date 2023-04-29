@@ -1,7 +1,7 @@
 'use client';
 // Import 
-import Image from "next/image" //Import du composant Next Image pour afficher les images
 import { useRouter } from "next/navigation";
+import Image from "next/image" //Import du composant Next Image pour afficher les images
 
 const Logo = () => {
   const router = useRouter();
