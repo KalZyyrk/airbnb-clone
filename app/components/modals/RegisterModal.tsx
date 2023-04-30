@@ -22,6 +22,7 @@ import Input from '../inputs/Input';
 import Modal from './Modal';
 
 const RegisterModal = () => {
+  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -53,6 +54,11 @@ const RegisterModal = () => {
         setIsLoading(false);
       });
   }
+
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -104,7 +110,6 @@ const RegisterModal = () => {
         onClick={() => signIn('github')}
       />
       <div
-        onClick={registerModal.onClose}
         className='
         text-neutral-500
         text-center
@@ -114,7 +119,11 @@ const RegisterModal = () => {
       >
         <div className='flex flex-row justify-center items-center gap-2'>
           <div>Already have an account ?</div>
-          <div className='text-neutral-800 cursor-pointer hover:underline'>Log in</div>
+          <div
+            onClick={toggle}
+            className='text-neutral-800 cursor-pointer hover:underline'>
+            Log in
+          </div>
         </div>
       </div>
     </div>
