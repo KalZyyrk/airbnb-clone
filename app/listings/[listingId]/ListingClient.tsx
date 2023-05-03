@@ -4,13 +4,13 @@ import Container from '@/app/components/Container';
 import ListingHead from '@/app/components/listings/ListingHead';
 import ListingInfo from '@/app/components/listings/ListingInfo';
 import { categories } from '@/app/components/navbar/Categories';
-import { safeListing, safeUser } from '@/app/types';
+import { SafeListing, safeUser } from '@/app/types';
 import { Reservation } from '@prisma/client';
 import { useMemo } from 'react';
 
 interface ListingClientProps {
   reservation?: Reservation[];
-  listing: safeListing & {
+  listing: SafeListing & {
     user: safeUser
   };
   currentUser?: safeUser | null;
