@@ -13,6 +13,7 @@ import { safeUser } from '@/app/types';
 import Avatar from '../Avatar';
 
 import MenuItem from './MenuItem';
+import { useRouter } from 'next/navigation';
 
 interface UserMenuProps {
   currentUser?: safeUser | null;
@@ -22,6 +23,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
+  const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -102,19 +104,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem
                   label="My trips"
-                  onClick={() => { }}
+                  onClick={() => router.push('/trips')}
                 />
                 <MenuItem
                   label="My favorites"
-                  onClick={() => { }}
+                  onClick={() => router.push('/favorites')}
                 />
                 <MenuItem
                   label="My reservations"
-                  onClick={() => { }}
+                  onClick={() => router.push('/reservations')}
                 />
                 <MenuItem
                   label="My properties"
-                  onClick={() => { }}
+                  onClick={() => router.push('/properties')}
                 />
                 <MenuItem
                   label="Airbnb your home"
