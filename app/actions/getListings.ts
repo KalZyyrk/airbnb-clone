@@ -10,13 +10,14 @@ export default async function getListings(
   try {
     const { userId } = params;
 
-    let query: any = {}
+    let query: any = {};
 
     if (userId) {
       query.userId = userId;
     }
 
     const listings = await prisma.listing.findMany({
+      where: query,
       orderBy: {
         createdAt: 'desc'
       }
