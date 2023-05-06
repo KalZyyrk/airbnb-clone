@@ -1,7 +1,7 @@
 import prisma from '@/app/libs/prismadb'
 
 export interface IListingsParams {
-  userId?: string | undefined;
+  userId?: string | null;
 }
 
 export default async function getListings(
